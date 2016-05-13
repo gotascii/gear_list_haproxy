@@ -1,0 +1,15 @@
+haproxy.cfg
+---
+Haproxy listens on port 80. It routes api.gear-list.com to gearlist_api_1:3000,
+which is where docker-compose runs the rails-api service. It routes
+original.gear-list.com to gearlist_original_1:3000, which is where
+docker-compose runs the original all-in-one rails application. It routes
+browser-sync.gear-list.com to gearlist_browser_client_1:3001, which is where
+docker-compose runs the Browsersync UI application. Lastly, it routes any other
+request to gearlist_browser_client_1:3000, which is where docker-compose runs
+the static lite-server.
+
+The timeouts in the defaults section are important for ensuring websocket
+connectivity between browsers and browsersync. Specifically, the infinite tunnel
+timeout allows established websocket connections to persist indefinitely. Never
+do that in prod, obvs.
