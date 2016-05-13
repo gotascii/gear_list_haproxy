@@ -13,3 +13,6 @@ The timeouts in the defaults section are important for ensuring websocket
 connectivity between browsers and browsersync. Specifically, the infinite tunnel
 timeout allows established websocket connections to persist indefinitely. Never
 do that in prod, obvs.
+
+Haproxy stats are also enabled and can be reached at:
+http://gear-list.com/haproxy?stats
